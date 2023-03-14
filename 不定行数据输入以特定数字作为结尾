@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main()
+{
+    int grade,counter,sum;
+    sum=0;
+    scanf("%d",&grade);
+    while(grade!=-3)//在这里以-3作为输入的结尾
+    {
+    	sum+=grade;
+    	counter++;
+    	scanf("%d",&grade);//在这里进行多个数据的输入，而不是while(scanf(````
+	}
+	printf("%d",sum);
+	return 0;
+}
