@@ -1,0 +1,25 @@
+#include<stdio.h>
+int main()
+{
+	int m,n,count;
+	scanf("%d%d",&m,&n);
+	count=0;
+	for(int i=0;i<=31;i++)
+	{
+		if(((m>>i)&1)!=((n>>i)&1))//不断右移，然后用&1来测试最后一位到底是什么
+		count++;
+	}
+	printf("%d\n",count);
+	
+	if((count>=0.5)&&(count<=1.5))
+	    printf("mandarin duck");
+	else if((count>1.5)&&(count<=4))
+	    printf("G00d friends!");
+	else if((count>4)&&(count<=12))
+	    printf("common friends");
+	else if((count>12)&&(count<=25))
+	    printf("broad communication");
+	else 
+	    printf("strangers");
+	return 0;
+}
