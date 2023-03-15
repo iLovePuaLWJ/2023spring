@@ -1,0 +1,64 @@
+#include<stdio.h>
+int main()
+{
+	int n;
+
+	int month[13]={31,31,28,31,30,31,30,31,31,30,31,30,31};
+	scanf("%d",&n);
+	long int nian[105],yue[105],ri[105],shi[105],fen[105];
+	for(int i=0;i<=n-1;i++)
+	{
+		scanf("%ld.%ld.%ld %ld:%ld",&nian[i],&yue[i],&ri[i],&shi[i],&fen[i]);
+	}
+	
+	for(int i=0;i<=n-1;i++)
+	{
+	
+	 if(fen[i]>=60)//注意题目要求，有的是>,有的是>=
+	   {
+		fen[i]-=60;
+		shi[i]+=1;
+       }
+	while(1)//通过while循环来操纵，使得最后输出答案符合要求
+	{
+		 if(shi[i]>=24)
+	   {
+		shi[i]-=24;
+		ri[i]+=1;
+	   }
+	   if(shi[i]<24)
+	   break;
+	}
+	while(1)
+	{
+		if(ri[i]>month[(yue[i]%12)])
+	   {
+		ri[i]-=month[(yue[i]%12)];
+		yue[i]+=1;
+	   }
+	   if(ri[i]<=month[yue[i]%12])
+	   break;
+	}
+	 while(1)
+	 {
+	 	 if(yue[i]>12)
+	   {
+		yue[i]-=12;
+		nian[i]++;
+	   }	
+	   if(yue[i]<=12)
+	   break;
+	 }
+	
+	  
+	  
+	}
+	
+	
+	for(int i=0;i<=n-1;i++)
+	{
+		printf("%ld.%02ld.%02ld %02ld:%02ld\n",nian[i],yue[i],ri[i],shi[i],fen[i]);
+	}
+	
+	return 0;
+}
