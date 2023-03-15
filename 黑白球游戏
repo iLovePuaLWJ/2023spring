@@ -1,0 +1,33 @@
+#include<stdio.h>
+int main()
+{
+	int T;
+	int w,b;
+	scanf("%d",&T);
+	while(scanf("%d%d",&w,&b)!=EOF)
+	{
+		int n=w+b;
+		for(int i=n;i>1;i--)
+		{
+			if((w*(w-1))/((w+b)*(w+b-1))>0.5)
+			{
+				w-=2;b++;
+			}
+			else
+			{
+				b--;
+			}
+		}
+		if(w==1&&b==0)
+		{
+			printf("White\n");
+		}
+		else if(w==0&&b==1)
+		{
+				printf("Black\n");
+		}
+	
+	}
+	
+	return 0;
+}
