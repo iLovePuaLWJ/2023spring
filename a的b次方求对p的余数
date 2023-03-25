@@ -1,0 +1,27 @@
+#include<stdio.h>
+int lwj(int,int);
+int mod(int,int,int);
+int main()
+{
+	int a,b,p;
+	scanf("%d%d%d",&a,&b,&p);
+	int result;
+	result=mod(a,b,p);
+	printf("%d",result);
+	return 0;
+}
+
+int lwj(int a,int b)
+{
+	int a_b=1;
+	for(int i=1;i<=b;i++)
+	{
+		a_b*=a;
+	}
+	return a_b;
+}	
+
+int mod(int a,int b,int c)
+{
+	return (lwj(a,b)%c);
+}
